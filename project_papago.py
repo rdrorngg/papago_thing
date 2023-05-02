@@ -26,14 +26,13 @@ class PapagoApi:
         self.driver.find_element(By.XPATH, '//*[@id="txtSource"]').click()
         self.driver.find_element(By.ID, "txtSource").clear()
         self.driver.find_element(By.ID, "txtSource").send_keys(text)
-        time.sleep(2)
-        data = self.driver.find_element(By.XPATH, '//*[@id="txtTarget"]/span').text
+        time.sleep(1.5)
+        data = self.driver.find_elements(By.XPATH, '//*[@id="txtTarget"]/span')
         self.driver.find_element(By.XPATH, '//*[@id="txtSource"]').click()
         self.driver.find_element(By.ID, "txtSource").clear()
 
         if data:
-            print(data)
-            return PapagoApi.get_trans(self, input())
+            for i in data: #문장을 한번에 받아오거나 출력하는 방법이 있으면 좋겠다. 
+                print(i.text)
         else:
             return ''
-
