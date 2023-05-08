@@ -2,6 +2,7 @@ import sys
 from os import path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
+from project_main import Ui_MainWindow
 from project_papago import PapagoApi 
 import pyperclip
 from pynput.keyboard import Listener, Key, KeyCode
@@ -28,4 +29,5 @@ with Listener(
         on_press=on_press,
         on_release=on_release_copy) as listener:
         listener.join()
+
 
